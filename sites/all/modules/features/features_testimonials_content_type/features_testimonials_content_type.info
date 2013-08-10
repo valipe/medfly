@@ -1,0 +1,12 @@
+name = Testimonials content type
+description = content type feature for testimonials
+core = 7.x
+package = Features
+version = 7.x-1.1
+project = features_testimonials_content_type
+dependencies[] = features
+dependencies[] = text
+features[features_api][] = api:2
+features[field_base][] = field_medfly_testimonial
+features[field_instance][] = node-medfly_testimonials-field_medfly_testimonial
+features[node][] = medfly_testimonials
