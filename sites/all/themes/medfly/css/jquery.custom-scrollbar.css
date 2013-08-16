@@ -1,0 +1,81 @@
+.scrollable {
+  position: relative;
+}
+
+.scrollable .viewport {
+  position: relative;
+  overflow: hidden;
+}
+
+.scrollable .viewport .overview {
+  position: absolute;
+}
+
+.scrollable .scroll-bar {
+  display: none;
+}
+
+.scrollable .scroll-bar.vertical {
+  position: absolute;
+  right: 0;
+  height: 100%;
+  z-index: 99;
+}
+
+.scrollable .scroll-bar.horizontal {
+  position: relative;
+  width: 100%;
+}
+
+.scrollable .scroll-bar .thumb {
+  position: absolute;
+}
+
+.scrollable .scroll-bar.vertical .thumb {
+  width: 100%;
+}
+
+.scrollable .scroll-bar.horizontal .thumb {
+  height: 100%;
+  left: 0;
+}
+
+.not-selectable {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/*Default skin*/
+
+.scrollable.default-skin {
+  padding-right: 10px;
+  padding-bottom: 6px;
+}
+
+.scrollable.default-skin .scroll-bar.vertical {
+  width: 6px;
+  background: #d1c1ba;
+  border-radius: 3px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+}
+
+.scrollable.default-skin .scroll-bar.horizontal {
+  height: 6px;
+}
+
+.scrollable.default-skin .scroll-bar .thumb {
+  background-color: #7e5948;
+  opacity: 0.7;
+  border-radius: 3px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+}
+
+.scrollable.default-skin .scroll-bar:hover .thumb {
+  opacity: 1;
+}
