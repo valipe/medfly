@@ -1,0 +1,47 @@
+<?php 
+/*
+Hook Menu Implimentation
+*/
+function medflypay_menu() {
+    $items['admin/config/content/payment'] = array(
+    'title' => 'Medfly Paypal Configuration',
+    'description' => 'Settings for Paypal Configuration ',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('_Medfly_Payments'),
+    'access arguments' => array('administer Kony Oauth settings'),
+    'type' => MENU_NORMAL_ITEM,
+   );
+  return $items;
+}
+function _Medfly_Payments() {
+  $form = array();
+  $form['paypalEmail'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Paypal Business Email'),
+    '#default_value' => variable_get('paypalEmail'),  
+    '#description' => t("Please enter the Paypal Business Email"),
+    '#required' => TRUE,
+  );
+	$form['returnUrl'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Return Url '),
+    '#default_value' => variable_get('returnUrl','' ),    
+    '#description' => t("Please enter the return url"),
+    '#required' => TRUE,
+  );
+		$form['cancelReturn'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Cancel Return Url'),
+    '#default_value' => variable_get('cancelReturn','' ),    
+    '#description' => t("Please enter the Access Token url to be pinged"),
+    '#required' => TRUE,
+  );
+		$form['amount'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Amount'),
+    '#default_value' => variable_get('amount','100' ),    
+    '#description' => t("Please enter the paypal amount"),
+    '#required' => TRUE,
+  );	
+  return system_settings_form($form);
+}
