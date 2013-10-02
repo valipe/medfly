@@ -27,7 +27,3 @@
  * @ingroup views_templates
  */
 ?>
-<?php
-echo "<pre>";
-print_r($view->result);
-?>

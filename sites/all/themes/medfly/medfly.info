@@ -3,11 +3,16 @@ description = Medfly theme specifically designed for medical tourism site
 package = Core
 version = VERSION
 core = 7.x
-stylesheets[all][] = /css/style.css
-scripts[][] = /js/modernizr.2.6.1.js
-scripts[][] = /js/jquery.min.js
-scripts[][] = /js/jquery.custom-scrollbar.min.js
-scripts[][] = /js/fonts.js
+stylesheets[all][] = css/style.css
+stylesheets[all][] = css/js-image-slider.css
+stylesheets[all][] = css/normalize.css
+stylesheets[all][] = css/jquery.custom-scrollbar.css
+
+scripts[] = /js/modernizr.2.6.1.js
+scripts[] = /js/jquery.custom-scrollbar.min.js
+scripts[] = /js/js-image-slider.js
+scripts[] = /js/fonts.js
+regions[articles] = Articles 
 ; Information added by drupal.org packaging script on 2013-08-08
 version = "7.23"
 project = "drupal"

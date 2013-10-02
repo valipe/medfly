@@ -4,11 +4,12 @@ $path = $base_path.$theme_path;
 <body>
 <header>
   <section class="container group">
-    <section class="header-glow"> <a href="/" id="logo"><img src="sites/all/themes/medfly/images/logo.png" alt="Medfly" /></a>
+    <section class="header-glow"> <a href="/" id="logo"><img src="/medfly/sites/all/themes/medfly/images/logo.png" alt="Medfly" /></a>
     	<section class="web-search">
         	<form>
             	<input type="text" placeholder="Web Search..." />
                 <button><i class="icon-search"></i></button>
+                <input type="submit" class="submit" value="Medical center" />
             </form>
         </section>
       <section class="contact-info right">
