@@ -11,6 +11,14 @@ function medflypay_menu() {
     'access arguments' => array('administer Kony Oauth settings'),
     'type' => MENU_NORMAL_ITEM,
    );
+   $items['payment'] = array(
+    'title' => 'Medfly Paypal Configuration',
+    'description' => 'Settings for Paypal Configuration ',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('_Medfly_Payment'),
+    'access arguments' => array('administer Kony Oauth settings'),
+    'type' => MENU_NORMAL_ITEM,
+   );
   return $items;
 }
 function _Medfly_Payments() {
@@ -32,7 +40,7 @@ function _Medfly_Payments() {
 		$form['cancelReturn'] = array(
     '#type' => 'textfield',
     '#title' => t('Cancel Return Url'),
-    '#default_value' => variable_get('cancelReturn','' ),    
+    '#value' => variable_get('cancelReturn','' ),    
     '#description' => t("Please enter the Access Token url to be pinged"),
     '#required' => TRUE,
   );
@@ -44,4 +52,138 @@ function _Medfly_Payments() {
     '#required' => TRUE,
   );	
   return system_settings_form($form);
+}
+function _Medfly_Payment()
+{
+$form = array();
+$paypalBusinessEmail = variable_get('paypalEmail');
+$amount = variable_get('amount');
+$return = variable_get('cancelReturn');
+$returnUrl = variable_get('returnUrl');
+$form['#action'] = url('https://www.paypal.com/cgi-bin/webscr');
+  $form['firstname'] = array(
+    '#type' => 'textfield',
+    '#title' => t('First Name'),
+      '#required' => TRUE,
+  );
+	$form['lastname'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Last Name'),    
+    '#required' => TRUE,
+  );
+	$form['address'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Address'),    
+    '#required' => TRUE,
+  );	$form['address1'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Address1'),    
+    '#required' => TRUE,
+  );	$form['city'] = array(
+    '#type' => 'textfield',
+    '#title' => t('City'),    
+    '#required' => TRUE,
+  );
+  $form['state'] = array(
+    '#type' => 'textfield',
+    '#title' => t('State'),    
+    '#required' => TRUE,
+  );	
+    $form['amount'] = array(
+    '#type' => 'hidden',
+    '#title' => t('Amount'), 
+	'#value' => $amount,	
+    '#required' => TRUE,
+  );
+      $form['return'] = array(
+    '#type' => 'hidden',
+    '#title' => t('Return'), 
+	'#value' => $returnUrl,	
+    '#required' => TRUE,
+  );
+  $form['cancel_return'] = array(
+    '#type' => 'hidden',
+    '#title' => t('Cancel Return'), 
+	'#value' => $return,	
+    '#required' => TRUE,
+  );
+  $form['no_shipping'] = array(
+    '#type' => 'hidden',
+    '#title' => t('Cancel Return'), 
+	'#value' => '0',	
+    '#required' => TRUE,
+  );  
+  $form['currency_code'] = array(
+    '#type' => 'hidden',
+    '#value' => 'USD',	
+    '#required' => TRUE,
+  );
+  $form['business'] = array(
+    '#type' => 'hidden',
+    '#value' => $paypalBusinessEmail,	
+    '#required' => TRUE,
+  );
+  $form['item_name'] = array(
+    '#type' => 'hidden',
+    '#value' => 'Medfly Consultation Fee',	
+    '#required' => TRUE,
+  );
+  $form['item_number'] = array(
+    '#type' => 'hidden',
+    '#value' => '1',	
+    '#required' => TRUE,
+  );
+  $form['shipping'] = array(
+    '#type' => 'hidden',
+    '#value' => '0.00',	
+    '#required' => TRUE,
+  );
+  $form['tax'] = array(
+    '#type' => 'hidden',
+    '#value' => '0.00',	
+    '#required' => TRUE,
+  );
+  $form['no_note'] = array(
+    '#type' => 'hidden',
+    '#value' => '0',	
+    '#required' => TRUE,
+  );
+  $form['rm'] = array(
+    '#type' => 'hidden',
+    '#value' => '2',	
+    '#required' => TRUE,
+  );  
+  $form['add'] = array(
+    '#type' => 'hidden',
+    '#value' => '1',	
+    '#required' => TRUE,
+  );
+  $form['cmd'] = array(
+    '#type' => 'hidden',
+    '#value' => '_xclick',	
+    '#required' => TRUE,
+  );
+  $form['bn'] = array(
+    '#type' => 'hidden',
+    '#value' => 'PP-ShopCartBF',	
+    '#required' => TRUE,
+  );
+  $form['lc'] = array(
+    '#type' => 'hidden',
+    '#value' => 'US',	
+    '#required' => TRUE,
+  );
+  $form['cpp_header_image'] = array(
+    '#type' => 'hidden',
+    '#value' => 'http://localhost/medfly/sites/all/themes/medfly/images/logo.png',	
+    '#required' => TRUE,
+  );
+  
+  $form['submit'] = array(
+    '#type' => 'submit',
+	'#executes_submit_callback' => FALSE,
+    '#value' => 'submit',	
+      );
+  
+  return $form;
 }

@@ -78,7 +78,7 @@
         	<li><a href="#">Contact Us</a></li>
         </ul>
     </nav>
-    <a href="/" class="logo-footer"><img src="sites/all/themes/medfly/images/logo.png" alt="Medfly" /></a>
+    
   </section>
 </section>
 </footer>
