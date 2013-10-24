@@ -68,5 +68,5 @@
 
 <?php }?>
           </ul>
-          <span class="more-posts">[ <a href="#">+Read All Articles</a> ]</span> </div>
+          <span class="more-posts">[ <a href="">+Read All Articles</a> ]</span> </div>
       </section>

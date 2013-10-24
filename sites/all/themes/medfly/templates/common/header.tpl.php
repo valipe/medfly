@@ -24,16 +24,15 @@ $path = $base_path.$theme_path;
 <nav class="main-nav">
   <section class="container group">
     <ul>
-      <li><a href="#" class="current">Home</a></li>
-      <li><a href="#">Treatments</a></li>
-      <li><a href="#">Medical Centers</a></li>
-      <li><a href="#">Packages</a></li>
-      <li><a href="#">Doctors</a></li>
-      <li><a href="#">Pricing</a></li>
-      <li><a href="#">Destinations</a></li>
+      <li><a href="/" class="current">Home</a></li>
+      <li><a href="treatment-centers">Treatments</a></li>
+      <li><a href="treatment-centers">Medical Centers</a></li>
+      <li><a href="packages">Packages</a></li>
+      <li><a href="doctors">Doctors</a></li>
+      <li><a href="pricing">Pricing</a></li>
       <li><a href="#">Resources</a></li>
-      <li><a href="#">Contact Us</a></li>
-      <li><a href="#" class="free-quote">Free Quote</a></li>
+      <li><a href="contact">Contact Us</a></li>
+      <li><a href="contact" class="free-quote">Free Quote</a></li>
     </ul>
   </section>
 </nav>

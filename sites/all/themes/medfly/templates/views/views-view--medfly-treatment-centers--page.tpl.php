@@ -26,4 +26,39 @@
  *
  * @ingroup views_templates
  */
-?>
+?>  
+			<section class="list-wrap">
+			<div class="treatment-blocks">
+				<?php foreach($view->result as $treatment){
+				$nodeObj = node_load($treatment->nid);
+				$path = url('node/'.$treatment->nid);
+				 $hospitalImage = file_create_url($nodeObj->field_medfly_hostpital_image[LANGUAGE_NONE][0]['uri']);
+				if(count($nodeObj->field_medfly_treatment)) {
+					foreach($nodeObj->field_medfly_treatment['und'] as $eachProductId) 
+					{
+					$productObj = taxonomy_term_load($eachProductId['tid']);
+					$products[] = array(
+						'product_name' => $productObj->name,       
+					);
+					}
+				}
+				?> <section class="layer article"> 
+					<div class="left art-featur-img"><a href="#"> <img src="<?php print $hospitalImage;?>" alt=""> </a>					
+                    					</div>                  				
+                  <div class="right contact"> <strong>Healthcare Features:</strong><br>
+                    <p><?php foreach($products as $prod){
+					print $prod['product_name'].",";
+					} ?><span class="block"><i class="icon-phone"></i><?php print $nodeObj->field_medfly_telephone[LANGUAGE_NONE][0]['value'];?></span></p>                    
+                    <p><a href="#" class="button">Make An Appointment</a></p>
+					<p><a href="<?php print $path;?>" class="button">Learn More</a></p>
+                  </div>
+                  <div class="mcl-content">
+				  <h4><?php print $nodeObj->title;?></h4>
+                    <?php print $nodeObj->field_medfly_hospital_details[LANGUAGE_NONE][0]['value'];?>
+					<p><a href="#" class="button">Contact Us</a></p>
+					
+                  </div>
+				   </section>
+				  <?php } ?>
+				    </div>				  
+				  </section>

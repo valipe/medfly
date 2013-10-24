@@ -4,15 +4,19 @@ package = Core
 version = VERSION
 core = 7.x
 stylesheets[all][] = css/style.css
-stylesheets[all][] = css/js-image-slider.css
+stylesheets[all][] = css/flexslider.css
 stylesheets[all][] = css/normalize.css
 stylesheets[all][] = css/jquery.custom-scrollbar.css
 
-scripts[] = /js/modernizr.2.6.1.js
-scripts[] = /js/jquery.custom-scrollbar.min.js
-scripts[] = /js/js-image-slider.js
-scripts[] = /js/fonts.js
+scripts[] = js/modernizr.2.6.1.js
+scripts[] = js/flexslider-min.js
+scripts[] = js/jquery.custom-scrollbar.min.js
+scripts[] = js/fonts.js
+scripts[] = js/custom.js
 regions[articles] = Articles 
+regions[homepageslider] = Home Page Slider 
+regions[homepageevents] = Home Page Events 
+
 ; Information added by drupal.org packaging script on 2013-08-08
 version = "7.23"
 project = "drupal"
