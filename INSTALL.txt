@@ -1,6 +1,7 @@
 
 CONTENTS OF THIS FILE
 ---------------------
+testing
 
  * Requirements and notes
  * Optional server requirements
