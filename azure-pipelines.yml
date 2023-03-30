@@ -24,3 +24,10 @@ steps:
 
 - script: composer install --no-interaction --prefer-dist
   displayName: 'composer install'
+- task: SonarCloudPrepare@1
+  inputs:
+    SonarCloud: 'sonar_test'
+    organization: 'saikrishnavalipe'
+    scannerMode: 'MSBuild'
+    projectKey: 'valipesaikrishna_test'
+    projectName: 'test'
